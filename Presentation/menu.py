@@ -45,7 +45,6 @@ class LoginDialog(QtWidgets.QDialog):
         self.register_dialog = RegisterDialog()
         self.register_dialog.exec()
 
-
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, username):
         super().__init__()

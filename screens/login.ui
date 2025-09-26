@@ -40,9 +40,9 @@
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>130</y>
+     <y>100</y>
      <width>332</width>
-     <height>324</height>
+     <height>371</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -62,7 +62,35 @@
      <number>10</number>
     </property>
     <item>
-     <widget class="QLabel" name="label_3">
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="lblLoginTitle">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Iniciar Sesión</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblUserLogin">
       <property name="styleSheet">
        <string notr="true">QLabel {
     color: #e0e0e0; /* gris claro para texto */
@@ -110,23 +138,7 @@ QLineEdit:placeholder {
      </widget>
     </item>
     <item>
-     <spacer name="verticalSpacer_9">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="lblPasswordLogin">
       <property name="text">
        <string>Contraseña</string>
       </property>
@@ -295,7 +307,7 @@ QPushButton:pressed {
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="lblRegisterLogin">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>

@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'screens/register.ui'
+# Form implementation generated from reading ui file '.\screens\register.ui'
 #
 # Created by: PyQt6 UI code generator 6.9.1
 #
@@ -20,21 +20,39 @@ class Ui_DialogRegister(object):
 "    font-size: 14px;\n"
 "}")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(parent=DialogRegister)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(230, 110, 332, 305))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(230, 110, 332, 328))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_4.setSizeConstraint(QtWidgets.QLayout.SizeConstraint.SetDefaultConstraint)
         self.verticalLayout_4.setContentsMargins(30, 0, 30, 10)
         self.verticalLayout_4.setSpacing(2)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.label_4 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
-        self.label_4.setStyleSheet("QLabel {\n"
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.lblLoginTitle = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lblLoginTitle.sizePolicy().hasHeightForWidth())
+        self.lblLoginTitle.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setItalic(False)
+        self.lblLoginTitle.setFont(font)
+        self.lblLoginTitle.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lblLoginTitle.setObjectName("lblLoginTitle")
+        self.horizontalLayout_7.addWidget(self.lblLoginTitle)
+        self.verticalLayout_4.addLayout(self.horizontalLayout_7)
+        self.lblUserRegister = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        self.lblUserRegister.setStyleSheet("QLabel {\n"
 "    color: #e0e0e0; /* gris claro para texto */\n"
 "    font-size: 14px;\n"
 "}")
-        self.label_4.setLineWidth(1)
-        self.label_4.setObjectName("label_4")
-        self.verticalLayout_4.addWidget(self.label_4)
+        self.lblUserRegister.setLineWidth(1)
+        self.lblUserRegister.setObjectName("lblUserRegister")
+        self.verticalLayout_4.addWidget(self.lblUserRegister)
         self.lineEditUsername = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -61,9 +79,9 @@ class Ui_DialogRegister(object):
         self.verticalLayout_4.addWidget(self.lineEditUsername)
         spacerItem = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         self.verticalLayout_4.addItem(spacerItem)
-        self.label_5 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_4.addWidget(self.label_5)
+        self.lblPasswordRegister = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        self.lblPasswordRegister.setObjectName("lblPasswordRegister")
+        self.verticalLayout_4.addWidget(self.lblPasswordRegister)
         self.lineEditPassword = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget_2)
         self.lineEditPassword.setStyleSheet("QLineEdit {\n"
 "    background-color: #3a3a3a; /* gris medio */\n"
@@ -85,9 +103,9 @@ class Ui_DialogRegister(object):
         self.verticalLayout_4.addWidget(self.lineEditPassword)
         spacerItem1 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         self.verticalLayout_4.addItem(spacerItem1)
-        self.label_7 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
-        self.label_7.setObjectName("label_7")
-        self.verticalLayout_4.addWidget(self.label_7)
+        self.lblConfirmPasswordRegister = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        self.lblConfirmPasswordRegister.setObjectName("lblConfirmPasswordRegister")
+        self.verticalLayout_4.addWidget(self.lblConfirmPasswordRegister)
         self.lineEditPassword2 = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget_2)
         self.lineEditPassword2.setStyleSheet("QLineEdit {\n"
 "    background-color: #3a3a3a; /* gris medio */\n"
@@ -187,8 +205,9 @@ class Ui_DialogRegister(object):
     def retranslateUi(self, DialogRegister):
         _translate = QtCore.QCoreApplication.translate
         DialogRegister.setWindowTitle(_translate("DialogRegister", "Dialog"))
-        self.label_4.setText(_translate("DialogRegister", "Usuario"))
-        self.label_5.setText(_translate("DialogRegister", "Contraseña"))
-        self.label_7.setText(_translate("DialogRegister", "Confirma tu contraseña"))
+        self.lblLoginTitle.setText(_translate("DialogRegister", "Registrarse"))
+        self.lblUserRegister.setText(_translate("DialogRegister", "Usuario"))
+        self.lblPasswordRegister.setText(_translate("DialogRegister", "Contraseña"))
+        self.lblConfirmPasswordRegister.setText(_translate("DialogRegister", "Confirma tu contraseña"))
         self.btnRegister.setText(_translate("DialogRegister", "Registrarse"))
         self.labelStatus.setText(_translate("DialogRegister", "DDDDD"))
