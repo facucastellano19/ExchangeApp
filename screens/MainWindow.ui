@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>590</height>
+    <width>590</width>
+    <height>567</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,13 +21,220 @@
     font-size: 14px;
 }</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>120</y>
+      <width>211</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="btnCreateAccount">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #4a4a4a; /* gris medio */
+    color: #ffffff;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    padding: 6px 15px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #5a5a5a;
+    border: 1px solid #777777;
+}
+
+QPushButton:pressed {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+}</string>
+       </property>
+       <property name="text">
+        <string>Crear nueva cuenta</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnDeposit">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #4a4a4a; /* gris medio */
+    color: #ffffff;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    padding: 6px 15px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #5a5a5a;
+    border: 1px solid #777777;
+}
+
+QPushButton:pressed {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+}</string>
+       </property>
+       <property name="text">
+        <string>Depositar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnBuySell">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #4a4a4a; /* gris medio */
+    color: #ffffff;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    padding: 6px 15px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #5a5a5a;
+    border: 1px solid #777777;
+}
+
+QPushButton:pressed {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+}</string>
+       </property>
+       <property name="text">
+        <string>Comprar/Vender</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>120</y>
+      <width>201</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+    background-color: #4a4a4a;        /* gris medio */
+    color: #ffffff;                   /* texto blanco */
+    gridline-color: #666666;          /* color de las líneas de la tabla */
+    border: 1px solid #666666;        /* borde exterior */
+    font-weight: bold;                 /* texto en negrita */
+    selection-background-color: #5a5a5a; /* fondo de celda seleccionada */
+    selection-color: #ffffff;          /* texto de celda seleccionada */
+    border-radius: 5px;                /* bordes redondeados */
+}
+
+QHeaderView::section {
+    background-color: #3a3a3a;        /* cabecera más oscura */
+    color: #ffffff;
+    border: 1px solid #555555;
+    padding: 4px;
+    font-weight: bold;
+}
+
+QTableWidget::item {
+    padding: 5px;                      /* espacio interno de las celdas */
+}
+
+QTableWidget::item:selected {
+    background-color: #5a5a5a;        /* coincidente con el hover del botón */
+    color: #ffffff;
+}
+</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>Currency</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Amount</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="btnLogout">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#btnLogout {
+    background-color: #a64d4d;       /* rojo burdeos más suave */
+    color: #ffffff;                   /* texto blanco */
+    border: 1px solid #803333;        /* borde un poco más oscuro */
+    border-radius: 5px;
+    padding: 6px 15px;
+    font-weight: bold;
+}
+
+QPushButton#btnLogout:hover {
+    background-color: #b26666;       /* más claro al pasar el mouse */
+    border: 1px solid #993333;
+}
+
+QPushButton#btnLogout:pressed {
+    background-color: #803333;       /* más oscuro al presionar */
+    border: 1px solid #662222;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Cerrar sesión</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>50</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>ExchangeApp</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>590</width>
      <height>25</height>
     </rect>
    </property>

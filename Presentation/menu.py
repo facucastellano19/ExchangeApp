@@ -53,9 +53,10 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.sistema = AccountManager(username)
         
-        # Conectar botones a funciones
-        #self.ui.btnCrearCuenta.clicked.connect(self.sistema.crear_nueva_cuenta)
-        #self.ui.btnDepositar.clicked.connect(self.sistema.depositar)
+        
+        
+        # self.ui.btnCreateAccount.clicked.connect(self.sistema.crear_nueva_cuenta(moneda))
+        # self.ui.btnDeposit.clicked.connect(self.sistema.depositar("ARS", monto))
         
 class RegisterDialog(QtWidgets.QDialog):
     def __init__(self):
