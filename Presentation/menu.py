@@ -53,10 +53,22 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.sistema = AccountManager(username)
         
+        # Configuracion de la tabla
+        self.ui.tableCurrencies.horizontalHeader().setStretchLastSection(True)
+        self.ui.tableCurrencies.verticalHeader().setVisible(False)
+        self.ui.tableCurrencies.setAlternatingRowColors(True)
         
+        # Llenar la tabla con el resumen
+        try:
+            resumen = self.sistema.mostrar_resumen()
+            for cuenta in resumen:
+                row = self.ui.tableCurrencies.rowCount()
+                self.ui.tableCurrencies.insertRow(row)
+                self.ui.tableCurrencies.setItem(row, 0, QTableWidgetItem(cuenta["currency"]))
+                self.ui.tableCurrencies.setItem(row, 1, QTableWidgetItem(str(cuenta["amount"])))
+        except ValueError as e:
+            QMessageBox.warning(self, "Atención", str(e)) 
         
-        # self.ui.btnCreateAccount.clicked.connect(self.sistema.crear_nueva_cuenta(moneda))
-        # self.ui.btnDeposit.clicked.connect(self.sistema.depositar("ARS", monto))
         
 class RegisterDialog(QtWidgets.QDialog):
     def __init__(self):

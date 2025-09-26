@@ -90,9 +90,9 @@ class Ui_MainWindow(object):
 "}")
         self.btnBuySell.setObjectName("btnBuySell")
         self.verticalLayout.addWidget(self.btnBuySell)
-        self.tableWidget = QtWidgets.QTableWidget(parent=self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(320, 120, 201, 371))
-        self.tableWidget.setStyleSheet("QTableWidget {\n"
+        self.tableCurrencies = QtWidgets.QTableWidget(parent=self.centralwidget)
+        self.tableCurrencies.setGeometry(QtCore.QRect(320, 120, 201, 371))
+        self.tableCurrencies.setStyleSheet("QTableWidget {\n"
 "    background-color: #4a4a4a;        /* gris medio */\n"
 "    color: #ffffff;                   /* texto blanco */\n"
 "    gridline-color: #666666;          /* color de las líneas de la tabla */\n"
@@ -120,13 +120,13 @@ class Ui_MainWindow(object):
 "    color: #ffffff;\n"
 "}\n"
 "")
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(2)
-        self.tableWidget.setRowCount(0)
+        self.tableCurrencies.setObjectName("tableCurrencies")
+        self.tableCurrencies.setColumnCount(2)
+        self.tableCurrencies.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
+        self.tableCurrencies.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableCurrencies.setHorizontalHeaderItem(1, item)
         self.btnLogout = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnLogout.setGeometry(QtCore.QRect(450, 10, 121, 31))
         self.btnLogout.setStyleSheet("QPushButton#btnLogout {\n"
@@ -181,9 +181,9 @@ class Ui_MainWindow(object):
         self.btnCreateAccount.setText(_translate("MainWindow", "Crear nueva cuenta"))
         self.btnDeposit.setText(_translate("MainWindow", "Depositar"))
         self.btnBuySell.setText(_translate("MainWindow", "Comprar/Vender"))
-        item = self.tableWidget.horizontalHeaderItem(0)
+        item = self.tableCurrencies.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Currency"))
-        item = self.tableWidget.horizontalHeaderItem(1)
+        item = self.tableCurrencies.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Amount"))
         self.btnLogout.setText(_translate("MainWindow", "Cerrar sesión"))
         self.label.setText(_translate("MainWindow", "ExchangeApp"))
