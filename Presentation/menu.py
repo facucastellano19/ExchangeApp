@@ -8,6 +8,7 @@ from PyQt6 import QtWidgets
 from Business.auth import auth, RegisterResult
 from Business.account_manager import AccountManager
 from screens.ui_MainWindow import Ui_MainWindow
+from screens.ui_createAccount import Ui_DialogCreateAccount
 from screens.ui_deposit import Ui_DialogDeposit
 from screens.ui_login import Ui_DialogLogin
 from screens.ui_register import Ui_DialogRegister
@@ -65,6 +66,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Conectar botones
         self.ui.btnLogout.clicked.connect(self.logout)
         self.ui.btnDeposit.clicked.connect(self.open_deposit_dialog)
+        self.ui.btnCreateAccount.clicked.connect(self.open_create_account_dialog)
                 
     def update_table(self):
         self.ui.tableCurrencies.setRowCount(0)
@@ -82,11 +84,36 @@ class MainWindow(QtWidgets.QMainWindow):
         self.deposit_dialog.exec()
         self.update_table()
         
+    def open_create_account_dialog(self):
+        self.create_account_dialog = CreateAccountDialog(self.username)
+        self.create_account_dialog.exec()
+        self.update_table()
+        
     def logout(self):
         self.close()
         self.login_dialog = LoginDialog()
         self.login_dialog.exec()
         
+class CreateAccountDialog(QtWidgets.QDialog):
+    def __init__(self, username):
+        super().__init__()
+        self.ui = Ui_DialogCreateAccount()
+        self.ui.setupUi(self)
+        self.account_manager = AccountManager(username)
+        
+        self.currencies = sorted(self.account_manager.obtener_monedas_validas())       
+        self.ui.cbSelectCurrencyCreate.addItems(self.currencies)
+        
+        self.ui.btnCreateAccount.clicked.connect(self.create_account_clicked)
+        
+    def create_account_clicked(self):
+        currency = self.ui.cbSelectCurrencyCreate.currentText()
+        try:
+            self.account_manager.crear_nueva_cuenta(currency)
+            QMessageBox.information(self, "Cuenta Creada", f"Se ha creado una nueva cuenta en {currency}.")
+            self.accept()
+        except Exception as e:
+            QMessageBox.warning(self, "Error", str(e))
 
 class DepositDialog(QtWidgets.QDialog):
     def __init__(self, username):

@@ -18,11 +18,16 @@ class AccountManager:
     
         
     def obtener_monedas_validas(self):
+        monedas = self.serial.load_monedas()
+        if monedas:
+            return monedas
+
         try:
             response = requests.get(self.API_URL)
             data = response.json()
             rates = data.get("rates", {})
             monedas = list(rates.keys())
+            self.serial.save_monedas(monedas)
             return monedas
         except Exception:
             raise ConnectionError("No se pudo obtener la lista de monedas válidas.")
@@ -31,8 +36,9 @@ class AccountManager:
     def crear_nueva_cuenta(self, moneda):
         moneda = moneda.upper()
         
-        if len(moneda) > 11 or not moneda.isalpha():
-            raise ValueError(f"La moneda '{moneda}' no es válida.")
+        #ahora las monedas validas se obtienen de la API
+        #if len(moneda) > 11 or not moneda.isalpha():
+            #raise ValueError(f"La moneda '{moneda}' no es válida.")
 
         monedas_validas = self.obtener_monedas_validas()
         

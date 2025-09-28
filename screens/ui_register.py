@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_DialogRegister(object):
     def setupUi(self, DialogRegister):
         DialogRegister.setObjectName("DialogRegister")
-        DialogRegister.resize(800, 600)
+        DialogRegister.resize(800, 558)
         DialogRegister.setStyleSheet("QDialog, QWidget {\n"
 "    background-color: #2b2b2b; /* gris oscuro */\n"
 "    color: #ffffff; /* texto por defecto */\n"

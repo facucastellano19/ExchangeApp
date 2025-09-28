@@ -1,4 +1,5 @@
 from decimal import Decimal
+import json
 
 import sqlobject as SO
 from sqlobject import SQLObjectNotFound
@@ -21,6 +22,26 @@ class serializer:
     def __init__(self):
         users.createTable(ifNotExists=True)
         accounts.createTable(ifNotExists=True)
+        
+    def save_monedas(self, monedas):
+        try:
+            with open("monedas.json", "w") as f:
+                json.dump(monedas, f, indent=4)
+        except Exception as e:
+            print(f"Error al guardar monedas: {e}")
+
+    def load_monedas(self):
+        try:
+            with open("monedas.json", "r") as f:
+                text = f.read()
+                if len(text) == 0:
+                    return []
+                return json.loads(text)
+        except FileNotFoundError:
+            return []
+        except Exception as e:
+            print(f"Error al cargar monedas: {e}")
+            return []
         
     def load_users(self):
         salida = {"users":[]}
