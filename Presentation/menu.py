@@ -60,24 +60,27 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.tableCurrencies.verticalHeader().setVisible(False)
         self.ui.tableCurrencies.setAlternatingRowColors(True)
         
-        # Llenar la tabla con el resumen
-        try:
-            resumen = self.sistema.mostrar_resumen()
-            for cuenta in resumen:
-                row = self.ui.tableCurrencies.rowCount()
-                self.ui.tableCurrencies.insertRow(row)
-                self.ui.tableCurrencies.setItem(row, 0, QTableWidgetItem(cuenta["currency"]))
-                self.ui.tableCurrencies.setItem(row, 1, QTableWidgetItem(str(cuenta["amount"])))
-        except ValueError as e:
-            QMessageBox.warning(self, "Atención", str(e)) 
-            
-        # Conectar boton de logout
+        self.update_table()
+        
+        # Conectar botones
         self.ui.btnLogout.clicked.connect(self.logout)
         self.ui.btnDeposit.clicked.connect(self.open_deposit_dialog)
-        
+                
+    def update_table(self):
+        self.ui.tableCurrencies.setRowCount(0)
+        summary = self.sistema.mostrar_resumen()
+        for account in summary:
+            row = self.ui.tableCurrencies.rowCount()
+            self.ui.tableCurrencies.insertRow(row)
+            self.ui.tableCurrencies.setItem(row, 0, QTableWidgetItem(account["currency"]))
+            self.ui.tableCurrencies.setItem(row, 1, QTableWidgetItem(str(account["amount"])))
+            
+
+    # Funciones de los botones
     def open_deposit_dialog(self):
         self.deposit_dialog = DepositDialog(self.username)
         self.deposit_dialog.exec()
+        self.update_table()
         
     def logout(self):
         self.close()
