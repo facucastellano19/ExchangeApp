@@ -224,7 +224,7 @@ QPushButton#btnLogout:pressed {
      <rect>
       <x>210</x>
       <y>30</y>
-      <width>141</width>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
@@ -238,7 +238,8 @@ QPushButton#btnLogout:pressed {
      <font>
       <family>Segoe UI</family>
       <pointsize>17</pointsize>
-      <bold>false</bold>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">

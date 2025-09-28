@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DialogDeposit</class>
- <widget class="QDialog" name="DialogDeposit">
+ <class>DialogBuySell</class>
+ <widget class="QDialog" name="DialogBuySell">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
+    <width>463</width>
     <height>383</height>
    </rect>
   </property>
@@ -24,17 +24,20 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>30</y>
-     <width>216</width>
+     <x>110</x>
+     <y>60</y>
+     <width>250</width>
      <height>238</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="lblSelectCurrency">
+       <widget class="QComboBox" name="cbSelectCurrencyOrigin"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblSelectCurrency_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -49,20 +52,14 @@
          </font>
         </property>
         <property name="text">
-         <string>Seleccione una moneda: </string>
+         <string>-&gt;</string>
         </property>
        </widget>
       </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QComboBox" name="cbSelectCurrencyDeposit">
       <item>
-       <property name="text">
-        <string>ARS</string>
-       </property>
+       <widget class="QComboBox" name="cbSelectCurrencyDestination"/>
       </item>
-     </widget>
+     </layout>
     </item>
     <item>
      <spacer name="verticalSpacer_3">
@@ -83,7 +80,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="lblDepositArsAmount">
+       <widget class="QLabel" name="lblInsertAmount">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -98,14 +95,14 @@
          </font>
         </property>
         <property name="text">
-         <string>Ingrese la cantidad a depositar:</string>
+         <string>Ingrese la cantidad:</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="txtDepositArsAmount"/>
+     <widget class="QLineEdit" name="txtBuySellAmount"/>
     </item>
     <item>
      <spacer name="verticalSpacer_4">
@@ -126,7 +123,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="btnDeposit">
+       <widget class="QPushButton" name="btnConfirmTransaction">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -154,7 +151,7 @@ QPushButton:pressed {
 }</string>
         </property>
         <property name="text">
-         <string>Depositar</string>
+         <string>Confirmar transacción</string>
         </property>
        </widget>
       </item>
@@ -162,16 +159,16 @@ QPushButton:pressed {
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="labelStatusDeposit">
+  <widget class="QLabel" name="labelStatusBuySell">
    <property name="enabled">
     <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>280</y>
-     <width>241</width>
-     <height>31</height>
+     <x>110</x>
+     <y>310</y>
+     <width>251</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -196,6 +193,58 @@ QPushButton:pressed {
    </property>
    <property name="wordWrap">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblBuySell_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>40</y>
+     <width>46</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Origen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblBuySell">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>40</y>
+     <width>50</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Destino</string>
    </property>
   </widget>
  </widget>
