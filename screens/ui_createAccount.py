@@ -12,33 +12,13 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_DialogCreateAccount(object):
     def setupUi(self, DialogCreateAccount):
         DialogCreateAccount.setObjectName("DialogCreateAccount")
-        DialogCreateAccount.resize(461, 359)
+        DialogCreateAccount.resize(471, 329)
         DialogCreateAccount.setStyleSheet("QWidget {\n"
 "    background-color: #2b2b2b; /* gris oscuro */\n"
 "    color: #ffffff; /* texto por defecto */\n"
-"    font-family: \"Segoe UI\", Arial, sans-serif;\n"
-"    font-size: 14px;\n"
 "}")
-        self.labelStatusCreate = QtWidgets.QLabel(parent=DialogCreateAccount)
-        self.labelStatusCreate.setEnabled(True)
-        self.labelStatusCreate.setGeometry(QtCore.QRect(120, 240, 241, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(10)
-        sizePolicy.setVerticalStretch(10)
-        sizePolicy.setHeightForWidth(self.labelStatusCreate.sizePolicy().hasHeightForWidth())
-        self.labelStatusCreate.setSizePolicy(sizePolicy)
-        self.labelStatusCreate.setStyleSheet("QLabel {\n"
-"    color: #ff4d4d;           /* rojo fuerte */\n"
-"    font-weight: bold;\n"
-"    font-size: 14px;\n"
-"}\n"
-"")
-        self.labelStatusCreate.setText("")
-        self.labelStatusCreate.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.labelStatusCreate.setWordWrap(True)
-        self.labelStatusCreate.setObjectName("labelStatusCreate")
         self.verticalLayoutWidget = QtWidgets.QWidget(parent=DialogCreateAccount)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(130, 70, 216, 161))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(130, 60, 211, 171))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -61,7 +41,6 @@ class Ui_DialogCreateAccount(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
         self.cbSelectCurrencyCreate = QtWidgets.QComboBox(parent=self.verticalLayoutWidget)
         self.cbSelectCurrencyCreate.setObjectName("cbSelectCurrencyCreate")
-        self.cbSelectCurrencyCreate.addItem("")
         self.verticalLayout_2.addWidget(self.cbSelectCurrencyCreate)
         spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         self.verticalLayout_2.addItem(spacerItem)
@@ -102,5 +81,4 @@ class Ui_DialogCreateAccount(object):
         _translate = QtCore.QCoreApplication.translate
         DialogCreateAccount.setWindowTitle(_translate("DialogCreateAccount", "Dialog"))
         self.lblSelectCurrencyCreate.setText(_translate("DialogCreateAccount", "Seleccione la cuenta a crear: "))
-        self.cbSelectCurrencyCreate.setItemText(0, _translate("DialogCreateAccount", "ARS"))
         self.btnCreateAccount.setText(_translate("DialogCreateAccount", "Crear cuenta"))

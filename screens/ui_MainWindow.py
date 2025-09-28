@@ -17,7 +17,6 @@ class Ui_MainWindow(object):
 "    background-color: #2b2b2b; /* gris oscuro */\n"
 "    color: #ffffff; /* texto por defecto */\n"
 "    font-family: \"Segoe UI\", Arial, sans-serif;\n"
-"    font-size: 14px;\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -28,6 +27,11 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.btnCreateAccount = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.btnCreateAccount.setFont(font)
         self.btnCreateAccount.setStyleSheet("QPushButton {\n"
 "    background-color: #4a4a4a; /* gris medio */\n"
 "    color: #ffffff;\n"
@@ -49,6 +53,11 @@ class Ui_MainWindow(object):
         self.btnCreateAccount.setObjectName("btnCreateAccount")
         self.verticalLayout.addWidget(self.btnCreateAccount)
         self.btnDeposit = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.btnDeposit.setFont(font)
         self.btnDeposit.setStyleSheet("QPushButton {\n"
 "    background-color: #4a4a4a; /* gris medio */\n"
 "    color: #ffffff;\n"
@@ -70,6 +79,11 @@ class Ui_MainWindow(object):
         self.btnDeposit.setObjectName("btnDeposit")
         self.verticalLayout.addWidget(self.btnDeposit)
         self.btnBuySell = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.btnBuySell.setFont(font)
         self.btnBuySell.setStyleSheet("QPushButton {\n"
 "    background-color: #4a4a4a; /* gris medio */\n"
 "    color: #ffffff;\n"
@@ -150,7 +164,7 @@ class Ui_MainWindow(object):
 "")
         self.btnLogout.setObjectName("btnLogout")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(260, 50, 101, 21))
+        self.label.setGeometry(QtCore.QRect(210, 30, 141, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -158,14 +172,14 @@ class Ui_MainWindow(object):
         self.label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
-        font.setBold(True)
+        font.setPointSize(17)
+        font.setBold(False)
         self.label.setFont(font)
         self.label.setTextFormat(QtCore.Qt.TextFormat.AutoText)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 590, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 590, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)

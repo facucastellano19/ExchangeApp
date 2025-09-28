@@ -100,12 +100,13 @@ class CreateAccountDialog(QtWidgets.QDialog):
         self.ui = Ui_DialogCreateAccount()
         self.ui.setupUi(self)
         self.account_manager = AccountManager(username)
-        self.currencies = self.account_manager.obtener_monedas_validas()       
-
+        
+        self.currencies = sorted(self.account_manager.obtener_monedas_validas())       
+        self.ui.cbSelectCurrencyCreate.addItems(self.currencies)
+        
         self.ui.btnCreateAccount.clicked.connect(self.create_account_clicked)
         
     def create_account_clicked(self):
-        self.ui.cbSelectCurrencyCreate.addItems(self.currencies)
         currency = self.ui.cbSelectCurrencyCreate.currentText()
         try:
             self.account_manager.crear_nueva_cuenta(currency)
