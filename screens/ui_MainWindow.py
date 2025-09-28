@@ -164,7 +164,7 @@ class Ui_MainWindow(object):
 "")
         self.btnLogout.setObjectName("btnLogout")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(210, 30, 141, 31))
+        self.label.setGeometry(QtCore.QRect(210, 30, 151, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -173,7 +173,8 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(17)
-        font.setBold(False)
+        font.setBold(True)
+        font.setItalic(True)
         self.label.setFont(font)
         self.label.setTextFormat(QtCore.Qt.TextFormat.AutoText)
         self.label.setObjectName("label")
@@ -191,7 +192,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Menu"))
         self.btnCreateAccount.setText(_translate("MainWindow", "Crear nueva cuenta"))
         self.btnDeposit.setText(_translate("MainWindow", "Depositar"))
         self.btnBuySell.setText(_translate("MainWindow", "Comprar/Vender"))

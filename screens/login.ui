@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Iniciar sesión</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>

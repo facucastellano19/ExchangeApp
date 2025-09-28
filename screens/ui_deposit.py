@@ -99,7 +99,7 @@ class Ui_DialogDeposit(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
         self.labelStatusDeposit = QtWidgets.QLabel(parent=DialogDeposit)
         self.labelStatusDeposit.setEnabled(True)
-        self.labelStatusDeposit.setGeometry(QtCore.QRect(120, 280, 241, 31))
+        self.labelStatusDeposit.setGeometry(QtCore.QRect(120, 280, 241, 51))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(10)
         sizePolicy.setVerticalStretch(10)
@@ -121,7 +121,7 @@ class Ui_DialogDeposit(object):
 
     def retranslateUi(self, DialogDeposit):
         _translate = QtCore.QCoreApplication.translate
-        DialogDeposit.setWindowTitle(_translate("DialogDeposit", "Dialog"))
+        DialogDeposit.setWindowTitle(_translate("DialogDeposit", "Depositar"))
         self.lblSelectCurrency.setText(_translate("DialogDeposit", "Seleccione una moneda: "))
         self.cbSelectCurrencyDeposit.setItemText(0, _translate("DialogDeposit", "ARS"))
         self.lblDepositArsAmount.setText(_translate("DialogDeposit", "Ingrese la cantidad a depositar:"))

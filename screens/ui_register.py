@@ -204,7 +204,7 @@ class Ui_DialogRegister(object):
 
     def retranslateUi(self, DialogRegister):
         _translate = QtCore.QCoreApplication.translate
-        DialogRegister.setWindowTitle(_translate("DialogRegister", "Dialog"))
+        DialogRegister.setWindowTitle(_translate("DialogRegister", "Registrarse"))
         self.lblLoginTitle.setText(_translate("DialogRegister", "Registrarse"))
         self.lblUserRegister.setText(_translate("DialogRegister", "Usuario"))
         self.lblPasswordRegister.setText(_translate("DialogRegister", "Contraseña"))

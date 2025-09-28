@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Depositar</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
@@ -171,7 +171,7 @@ QPushButton:pressed {
      <x>120</x>
      <y>280</y>
      <width>241</width>
-     <height>31</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="sizePolicy">

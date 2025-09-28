@@ -79,6 +79,6 @@ class Ui_DialogCreateAccount(object):
 
     def retranslateUi(self, DialogCreateAccount):
         _translate = QtCore.QCoreApplication.translate
-        DialogCreateAccount.setWindowTitle(_translate("DialogCreateAccount", "Dialog"))
+        DialogCreateAccount.setWindowTitle(_translate("DialogCreateAccount", "Crear nueva cuenta"))
         self.lblSelectCurrencyCreate.setText(_translate("DialogCreateAccount", "Seleccione la cuenta a crear: "))
         self.btnCreateAccount.setText(_translate("DialogCreateAccount", "Crear cuenta"))

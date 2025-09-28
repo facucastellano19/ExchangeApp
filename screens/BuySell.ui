@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Comprar o vender</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
@@ -166,7 +166,7 @@ QPushButton:pressed {
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>310</y>
+     <y>290</y>
      <width>251</width>
      <height>61</height>
     </rect>

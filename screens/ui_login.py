@@ -210,7 +210,7 @@ class Ui_DialogLogin(object):
 
     def retranslateUi(self, DialogLogin):
         _translate = QtCore.QCoreApplication.translate
-        DialogLogin.setWindowTitle(_translate("DialogLogin", "Dialog"))
+        DialogLogin.setWindowTitle(_translate("DialogLogin", "Iniciar sesión"))
         self.lblLoginTitle.setText(_translate("DialogLogin", "Iniciar Sesión"))
         self.lblUserLogin.setText(_translate("DialogLogin", "Usuario"))
         self.lblPasswordLogin.setText(_translate("DialogLogin", "Contraseña"))

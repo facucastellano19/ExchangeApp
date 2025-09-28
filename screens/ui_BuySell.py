@@ -101,7 +101,7 @@ class Ui_DialogBuySell(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
         self.labelStatusBuySell = QtWidgets.QLabel(parent=DialogBuySell)
         self.labelStatusBuySell.setEnabled(True)
-        self.labelStatusBuySell.setGeometry(QtCore.QRect(110, 310, 251, 61))
+        self.labelStatusBuySell.setGeometry(QtCore.QRect(110, 290, 251, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(10)
         sizePolicy.setVerticalStretch(10)
@@ -149,7 +149,7 @@ class Ui_DialogBuySell(object):
 
     def retranslateUi(self, DialogBuySell):
         _translate = QtCore.QCoreApplication.translate
-        DialogBuySell.setWindowTitle(_translate("DialogBuySell", "Dialog"))
+        DialogBuySell.setWindowTitle(_translate("DialogBuySell", "Comprar o vender"))
         self.lblSelectCurrency_2.setText(_translate("DialogBuySell", "->"))
         self.lblInsertAmount.setText(_translate("DialogBuySell", "Ingrese la cantidad:"))
         self.btnConfirmTransaction.setText(_translate("DialogBuySell", "Confirmar transacción"))
