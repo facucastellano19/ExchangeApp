@@ -1,11 +1,14 @@
+from decimal import Decimal
 import sys
 import time
 from PyQt6.QtWidgets import QApplication,QWidget,QPushButton,QLineEdit,QLabel,QMainWindow,QTableWidgetItem,QDialog,QMessageBox
 from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QDoubleValidator
 from PyQt6 import QtWidgets
 from Business.auth import auth, RegisterResult
 from Business.account_manager import AccountManager
 from screens.ui_MainWindow import Ui_MainWindow
+from screens.ui_deposit import Ui_DialogDeposit
 from screens.ui_login import Ui_DialogLogin
 from screens.ui_register import Ui_DialogRegister
 
@@ -46,6 +49,7 @@ class LoginDialog(QtWidgets.QDialog):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, username):
         super().__init__()
+        self.username = username
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
@@ -69,11 +73,55 @@ class MainWindow(QtWidgets.QMainWindow):
             
         # Conectar boton de logout
         self.ui.btnLogout.clicked.connect(self.logout)
+        self.ui.btnDeposit.clicked.connect(self.open_deposit_dialog)
+        
+    def open_deposit_dialog(self):
+        self.deposit_dialog = DepositDialog(self.username)
+        self.deposit_dialog.exec()
         
     def logout(self):
         self.close()
         self.login_dialog = LoginDialog()
         self.login_dialog.exec()
+        
+
+class DepositDialog(QtWidgets.QDialog):
+    def __init__(self, username):
+        super().__init__()
+        self.ui = Ui_DialogDeposit()
+        self.ui.setupUi(self)
+        
+        self.account_manager = AccountManager(username)
+
+        # QLineEdit solo numeros positivos
+        self.ui.txtDepositArsAmount.setValidator(QDoubleValidator(0.0, 1000000.0, 2))
+
+        # Conectar botones
+        self.ui.btnDeposit.clicked.connect(self.accept_deposit)
+
+    def accept_deposit(self):
+        currency = self.ui.cbSelectCurrency.currentText()
+        amount = self.ui.txtDepositArsAmount.text().strip()
+        
+        if not amount:
+            self.ui.labelStatusDeposit.setText("❌ Por favor, ingrese un monto.")
+            return
+        
+        try:
+            amount_decimal = Decimal(amount)
+            
+            reply = QMessageBox.question(self, 
+                    'Confirmar Depósito',
+                    f"¿Confirma el depósito de {amount} {currency}?",QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+            if reply == QMessageBox.StandardButton.Yes:
+                self.account_manager.depositar(currency, amount_decimal)
+                QMessageBox.information(self, "Depósito Exitoso", f"Se han depositado {amount} {currency} en su cuenta.")
+                self.accept()
+            else:
+                return
+        except Exception as e:
+            QMessageBox.warning(self, "Error", str(e))
+        
            
 
 class RegisterDialog(QtWidgets.QDialog):
