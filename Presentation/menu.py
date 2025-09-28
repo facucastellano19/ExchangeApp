@@ -66,7 +66,15 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.tableCurrencies.setItem(row, 1, QTableWidgetItem(str(cuenta["amount"])))
         except ValueError as e:
             QMessageBox.warning(self, "Atención", str(e)) 
-
+            
+        # Conectar boton de logout
+        self.ui.btnLogout.clicked.connect(self.logout)
+        
+    def logout(self):
+        self.close()
+        self.login_dialog = LoginDialog()
+        self.login_dialog.exec()
+           
 
 class RegisterDialog(QtWidgets.QDialog):
     
