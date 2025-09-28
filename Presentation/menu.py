@@ -7,6 +7,7 @@ from PyQt6.QtGui import QDoubleValidator
 from PyQt6 import QtWidgets
 from Business.auth import auth, RegisterResult
 from Business.account_manager import AccountManager
+from screens.ui_BuySell import Ui_DialogBuySell
 from screens.ui_MainWindow import Ui_MainWindow
 from screens.ui_createAccount import Ui_DialogCreateAccount
 from screens.ui_deposit import Ui_DialogDeposit
@@ -67,6 +68,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.btnLogout.clicked.connect(self.logout)
         self.ui.btnDeposit.clicked.connect(self.open_deposit_dialog)
         self.ui.btnCreateAccount.clicked.connect(self.open_create_account_dialog)
+        self.ui.btnBuySell.clicked.connect(self.buy_sell_dialog)
+        
+    
                 
     def update_table(self):
         self.ui.tableCurrencies.setRowCount(0)
@@ -79,6 +83,11 @@ class MainWindow(QtWidgets.QMainWindow):
             
 
     # Funciones de los botones
+    def buy_sell_dialog(self):
+        self.buy_sell_dialog = DialogBuySell(self.username)
+        self.buy_sell_dialog.exec()
+        self.update_table()
+        
     def open_deposit_dialog(self):
         self.deposit_dialog = DepositDialog(self.username)
         self.deposit_dialog.exec()
@@ -93,6 +102,49 @@ class MainWindow(QtWidgets.QMainWindow):
         self.close()
         self.login_dialog = LoginDialog()
         self.login_dialog.exec()
+        
+class DialogBuySell(QtWidgets.QDialog):
+    def __init__(self, username):
+        super().__init__()
+        self.ui = Ui_DialogBuySell()
+        self.ui.setupUi(self)
+        self.account_manager = AccountManager(username)
+        
+        self.currencies = sorted(self.account_manager.obtener_monedas_validas())       
+        self.ui.cbSelectCurrencyOrigin.addItems(self.currencies)
+        self.ui.cbSelectCurrencyDestination.addItems(self.currencies)
+        
+        # QLineEdit solo numeros positivos
+        self.ui.txtBuySellAmount.setValidator(QDoubleValidator(0.0, 1000000.0, 2))
+
+        # Conectar botones
+        self.ui.btnConfirmTransaction.clicked.connect(self.confirm_transaction)
+        
+    def confirm_transaction(self):
+        currency_origin = self.ui.cbSelectCurrencyOrigin.currentText()
+        currency_destination = self.ui.cbSelectCurrencyDestination.currentText()
+        amount = self.ui.txtBuySellAmount.text().strip()
+        
+        if not amount:
+            self.ui.labelStatusBuySell.setText("❌ Por favor, ingrese un monto.")
+            return
+        
+        if currency_origin == currency_destination:
+            self.ui.labelStatusBuySell.setText("❌ Las monedas de origen y destino no pueden ser iguales.")
+            return
+        
+        try:         
+            reply = QMessageBox.question(self, 
+                    'Confirmar Operación',
+                    f"¿Confirma la conversión de {amount} {currency_origin} a {currency_destination}?",QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+            if reply == QMessageBox.StandardButton.Yes:
+                self.account_manager.comprar_vender_moneda(currency_origin, currency_destination, amount)
+                QMessageBox.information(self, "Operación Exitosa", f"Se han convertido {amount} {currency_origin} a {currency_destination}.")
+                self.accept()
+            else:
+                return
+        except Exception as e:
+            QMessageBox.warning(self, "Error", str(e))
         
 class CreateAccountDialog(QtWidgets.QDialog):
     def __init__(self, username):

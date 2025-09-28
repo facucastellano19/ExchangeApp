@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_DialogDeposit(object):
     def setupUi(self, DialogDeposit):
         DialogDeposit.setObjectName("DialogDeposit")
-        DialogDeposit.resize(461, 359)
+        DialogDeposit.resize(461, 383)
         DialogDeposit.setStyleSheet("QWidget {\n"
 "    background-color: #2b2b2b; /* gris oscuro */\n"
 "    color: #ffffff; /* texto por defecto */\n"
@@ -41,10 +41,10 @@ class Ui_DialogDeposit(object):
         self.lblSelectCurrency.setObjectName("lblSelectCurrency")
         self.horizontalLayout_3.addWidget(self.lblSelectCurrency)
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
-        self.cbSelectCurrency = QtWidgets.QComboBox(parent=self.verticalLayoutWidget)
-        self.cbSelectCurrency.setObjectName("cbSelectCurrency")
-        self.cbSelectCurrency.addItem("")
-        self.verticalLayout_2.addWidget(self.cbSelectCurrency)
+        self.cbSelectCurrencyDeposit = QtWidgets.QComboBox(parent=self.verticalLayoutWidget)
+        self.cbSelectCurrencyDeposit.setObjectName("cbSelectCurrencyDeposit")
+        self.cbSelectCurrencyDeposit.addItem("")
+        self.verticalLayout_2.addWidget(self.cbSelectCurrencyDeposit)
         spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         self.verticalLayout_2.addItem(spacerItem)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
@@ -123,6 +123,6 @@ class Ui_DialogDeposit(object):
         _translate = QtCore.QCoreApplication.translate
         DialogDeposit.setWindowTitle(_translate("DialogDeposit", "Dialog"))
         self.lblSelectCurrency.setText(_translate("DialogDeposit", "Seleccione una moneda: "))
-        self.cbSelectCurrency.setItemText(0, _translate("DialogDeposit", "ARS"))
+        self.cbSelectCurrencyDeposit.setItemText(0, _translate("DialogDeposit", "ARS"))
         self.lblDepositArsAmount.setText(_translate("DialogDeposit", "Ingrese la cantidad a depositar:"))
         self.btnDeposit.setText(_translate("DialogDeposit", "Depositar"))
