@@ -161,9 +161,13 @@ class CreateAccountDialog(QtWidgets.QDialog):
     def create_account_clicked(self):
         currency = self.ui.cbSelectCurrencyCreate.currentText()
         try:
-            self.account_manager.crear_nueva_cuenta(currency)
-            QMessageBox.information(self, "Cuenta Creada", f"Se ha creado una nueva cuenta en {currency}.")
-            self.accept()
+            reply = QMessageBox.question(self, 
+                    'Confirmar Creación de Cuenta',
+                    f"¿Confirma la creación de una cuenta en {currency}?",QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+            if reply == QMessageBox.StandardButton.Yes:
+                self.account_manager.crear_nueva_cuenta(currency)
+                QMessageBox.information(self, "Cuenta Creada", f"Se ha creado una nueva cuenta en {currency}.")
+                self.accept()
         except Exception as e:
             QMessageBox.warning(self, "Error", str(e))
 
