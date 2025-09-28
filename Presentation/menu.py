@@ -1,6 +1,5 @@
 import sys
 import time
-
 from PyQt6.QtWidgets import QApplication,QWidget,QPushButton,QLineEdit,QLabel,QMainWindow,QTableWidgetItem,QDialog,QMessageBox
 from PyQt6.QtCore import Qt
 from PyQt6 import QtWidgets
@@ -9,7 +8,6 @@ from Business.account_manager import AccountManager
 from screens.ui_MainWindow import Ui_MainWindow
 from screens.ui_login import Ui_DialogLogin
 from screens.ui_register import Ui_DialogRegister
-
 
 class LoginDialog(QtWidgets.QDialog):
     def __init__(self):
@@ -53,11 +51,25 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.sistema = AccountManager(username)
         
-        # Conectar botones a funciones
-        #self.ui.btnCrearCuenta.clicked.connect(self.sistema.crear_nueva_cuenta)
-        #self.ui.btnDepositar.clicked.connect(self.sistema.depositar)
+        # Configuracion de la tabla
+        self.ui.tableCurrencies.horizontalHeader().setStretchLastSection(True)
+        self.ui.tableCurrencies.verticalHeader().setVisible(False)
+        self.ui.tableCurrencies.setAlternatingRowColors(True)
         
+        # Llenar la tabla con el resumen
+        try:
+            resumen = self.sistema.mostrar_resumen()
+            for cuenta in resumen:
+                row = self.ui.tableCurrencies.rowCount()
+                self.ui.tableCurrencies.insertRow(row)
+                self.ui.tableCurrencies.setItem(row, 0, QTableWidgetItem(cuenta["currency"]))
+                self.ui.tableCurrencies.setItem(row, 1, QTableWidgetItem(str(cuenta["amount"])))
+        except ValueError as e:
+            QMessageBox.warning(self, "Atención", str(e)) 
+
+
 class RegisterDialog(QtWidgets.QDialog):
+    
     def __init__(self):
         super().__init__()
         self.ui = Ui_DialogRegister()

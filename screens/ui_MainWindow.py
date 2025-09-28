@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'screens/MainWindow.ui'
+# Form implementation generated from reading ui file '.\screens\MainWindow.ui'
 #
 # Created by: PyQt6 UI code generator 6.9.1
 #
@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 590)
+        MainWindow.resize(590, 567)
         MainWindow.setStyleSheet("QWidget {\n"
 "    background-color: #2b2b2b; /* gris oscuro */\n"
 "    color: #ffffff; /* texto por defecto */\n"
@@ -21,9 +21,151 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(60, 120, 211, 321))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.btnCreateAccount = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.btnCreateAccount.setStyleSheet("QPushButton {\n"
+"    background-color: #4a4a4a; /* gris medio */\n"
+"    color: #ffffff;\n"
+"    border: 1px solid #666666;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px 15px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #5a5a5a;\n"
+"    border: 1px solid #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #3a3a3a;\n"
+"    border: 1px solid #555555;\n"
+"}")
+        self.btnCreateAccount.setObjectName("btnCreateAccount")
+        self.verticalLayout.addWidget(self.btnCreateAccount)
+        self.btnDeposit = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.btnDeposit.setStyleSheet("QPushButton {\n"
+"    background-color: #4a4a4a; /* gris medio */\n"
+"    color: #ffffff;\n"
+"    border: 1px solid #666666;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px 15px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #5a5a5a;\n"
+"    border: 1px solid #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #3a3a3a;\n"
+"    border: 1px solid #555555;\n"
+"}")
+        self.btnDeposit.setObjectName("btnDeposit")
+        self.verticalLayout.addWidget(self.btnDeposit)
+        self.btnBuySell = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.btnBuySell.setStyleSheet("QPushButton {\n"
+"    background-color: #4a4a4a; /* gris medio */\n"
+"    color: #ffffff;\n"
+"    border: 1px solid #666666;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px 15px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #5a5a5a;\n"
+"    border: 1px solid #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #3a3a3a;\n"
+"    border: 1px solid #555555;\n"
+"}")
+        self.btnBuySell.setObjectName("btnBuySell")
+        self.verticalLayout.addWidget(self.btnBuySell)
+        self.tableCurrencies = QtWidgets.QTableWidget(parent=self.centralwidget)
+        self.tableCurrencies.setGeometry(QtCore.QRect(320, 120, 201, 371))
+        self.tableCurrencies.setStyleSheet("QTableWidget {\n"
+"    background-color: #4a4a4a;        /* gris medio */\n"
+"    color: #ffffff;                   /* texto blanco */\n"
+"    gridline-color: #666666;          /* color de las líneas de la tabla */\n"
+"    border: 1px solid #666666;        /* borde exterior */\n"
+"    font-weight: bold;                 /* texto en negrita */\n"
+"    selection-background-color: #5a5a5a; /* fondo de celda seleccionada */\n"
+"    selection-color: #ffffff;          /* texto de celda seleccionada */\n"
+"    border-radius: 5px;                /* bordes redondeados */\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #3a3a3a;        /* cabecera más oscura */\n"
+"    color: #ffffff;\n"
+"    border: 1px solid #555555;\n"
+"    padding: 4px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;                      /* espacio interno de las celdas */\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #5a5a5a;        /* coincidente con el hover del botón */\n"
+"    color: #ffffff;\n"
+"}\n"
+"")
+        self.tableCurrencies.setObjectName("tableCurrencies")
+        self.tableCurrencies.setColumnCount(2)
+        self.tableCurrencies.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCurrencies.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCurrencies.setHorizontalHeaderItem(1, item)
+        self.btnLogout = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnLogout.setGeometry(QtCore.QRect(450, 10, 121, 31))
+        self.btnLogout.setStyleSheet("QPushButton#btnLogout {\n"
+"    background-color: #a64d4d;       /* rojo burdeos más suave */\n"
+"    color: #ffffff;                   /* texto blanco */\n"
+"    border: 1px solid #803333;        /* borde un poco más oscuro */\n"
+"    border-radius: 5px;\n"
+"    padding: 6px 15px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QPushButton#btnLogout:hover {\n"
+"    background-color: #b26666;       /* más claro al pasar el mouse */\n"
+"    border: 1px solid #993333;\n"
+"}\n"
+"\n"
+"QPushButton#btnLogout:pressed {\n"
+"    background-color: #803333;       /* más oscuro al presionar */\n"
+"    border: 1px solid #662222;\n"
+"}\n"
+"")
+        self.btnLogout.setObjectName("btnLogout")
+        self.label = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(260, 50, 101, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(-1)
+        font.setBold(True)
+        self.label.setFont(font)
+        self.label.setTextFormat(QtCore.Qt.TextFormat.AutoText)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 590, 25))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -36,3 +178,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.btnCreateAccount.setText(_translate("MainWindow", "Crear nueva cuenta"))
+        self.btnDeposit.setText(_translate("MainWindow", "Depositar"))
+        self.btnBuySell.setText(_translate("MainWindow", "Comprar/Vender"))
+        item = self.tableCurrencies.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Currency"))
+        item = self.tableCurrencies.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Amount"))
+        self.btnLogout.setText(_translate("MainWindow", "Cerrar sesión"))
+        self.label.setText(_translate("MainWindow", "ExchangeApp"))
