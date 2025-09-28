@@ -103,7 +103,7 @@ class DepositDialog(QtWidgets.QDialog):
         self.ui.btnDeposit.clicked.connect(self.accept_deposit)
 
     def accept_deposit(self):
-        currency = self.ui.cbSelectCurrency.currentText()
+        currency = self.ui.cbSelectCurrencyDeposit.currentText()
         amount = self.ui.txtDepositArsAmount.text().strip()
         
         if not amount:
